@@ -1,0 +1,147 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "test",
+      "x-schemaVersion": "0.3.1Z",
+      "x-providerName": "Atomic",
+      "x-supportContact": "https://atomic.io" 
+    },
+    "servers": [
+      {
+        "url": "https://ilzckkf09c.execute-api.us-east-1.amazonaws.com/stage",
+        "variables": {
+          "basePath": {
+            "default": "stage"
+          }
+        }
+      }
+    ],
+    "paths": {
+      "/status": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/serviceStatus"
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "apiKey": []
+            }
+          ]
+        }
+      },
+      "/submitAsyncAction": {
+        "post": {
+          "responses": {
+            "201": {
+              "description": "201 response",
+              "content": {}
+            }
+          },
+          "requestBody": {},
+          "callbacks":{}
+        }
+      },
+      "/getServiceDefinition": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "200 response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/serviceDefinition"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/getPicklist": {
+        "post": {
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/picklistObject"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "serviceStatus": {
+          "title": "serviceStatus",
+          "type": "object"
+        },
+        "serviceDefinition":{
+          "title": "serviceDefinition",
+          "type": "object",
+          "properties": {
+            "apiName": "string",
+            "invocationPayloadDef": "object"
+          }
+        }
+      },
+      "securitySchemes": {
+        "apiKey": {
+          "type": "apiKey",
+          "name": "x-api-key",
+          "in": "header"
+        }
+      },
+      "picklistObject": {
+        "description": "Object containing choices for flow and global parameters",
+        "type": "object",
+        "required": ["choices"],
+        "properties": {
+          "choices": {
+            "description": "List of choices to be offered in the picklist for the parameter in Marketo",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/picklistChoice"
+            }
+          }
+        }
+      },
+      "picklistChoice": {
+        "description": "Object containing display value and submitted value.",
+        "required": ["displayValue", "submittedValue"],
+        "properties": {
+          "displayValue": {
+            "$ref": "#/components/schemas/i18nString"
+          },
+          "submittedValue": {
+            "description": "Value which will be submitted when the choice is selected",
+            "example": "country-codes.csv",
+            "anyOf": [
+              { "type": "boolean" },
+              { "type": "integer" },
+              { "type": "number" },
+              { "type": "string" }
+            ]
+          }
+        }
+      }
+    },
+    "security": [
+      {
+        "apiKey": []
+      }
+    ]
+  }
