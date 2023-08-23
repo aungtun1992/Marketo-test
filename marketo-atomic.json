@@ -8,9 +8,11 @@
     "x-schemaVersion": "1.0.0",
     "x-supportContact": "support@atomic.io"
   },
-  "servers": [{
+  "servers": [
+    {
       "url": "https://87132156-2283-4d45-aaf6-93918828e90d.mock.pstmn.io"
-    }],
+    }
+  ],
   "tags": [
     {
       "name": "connector",
@@ -1101,7 +1103,7 @@
         "name": "x-api-key",
         "in": "header"
       }
-    },
+    }
   },
   "security": [
     {
