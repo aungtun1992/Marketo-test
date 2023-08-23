@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Atomic Action Flow Connector",
-    "x-providerName": "Atomic",
-    "description": "Atomic Connector",
+    "title": "Atomic (aung)",
+    "x-providerName": "Atomic (aung)",
+    "description": "Atomic Connector (aung)",
     "version": "1.0.0",
     "x-schemaVersion": "1.0.0",
     "x-supportContact": "support@atomic.io"
@@ -21,11 +21,6 @@
     "/submitAsyncAction": {
       "description": "Lead and context data is submitted through this endpoint.  Results should be submitted through callback",
       "post": {
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
         "tags": [
           "flow action"
         ],
@@ -204,11 +199,6 @@
       "description": "Returns lists of choices for a flow or global parameter.",
       "post": {
         "summary": "Returns lists of choices for a flow or global parameter.",
-        "security": [
-          {
-            "oauth2": []
-          }
-        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -1082,18 +1072,6 @@
         },
         "additionalProperties": {
           "type": "string"
-        }
-      }
-    },
-    "securitySchemes": {
-      "oauth2": {
-        "type": "oauth2",
-        "flows": {
-          "clientCredentials": {
-            "tokenUrl": "https://pollution-atomic-io.auth.us-east-1.amazoncognito.com/oauth2/token",
-            "refreshUrl": "https://pollution-atomic-io.auth.us-east-1.amazoncognito.com/oauth2/token",
-            "scopes": {}
-          }
         }
       }
     }
