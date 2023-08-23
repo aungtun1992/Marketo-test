@@ -1074,7 +1074,14 @@
           "type": "string"
         }
       }
-    }
+    },
+    "securitySchemes": {
+      "apiKey": {
+        "type": "apiKey",
+        "name": "x-api-key",
+        "in": "header"
+      }
+    },
   },
   "security": [
     {
