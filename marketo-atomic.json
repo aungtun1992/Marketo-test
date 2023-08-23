@@ -25,6 +25,11 @@
           "flow action"
         ],
         "operationId": "",
+        "security": [
+          {
+            "apiKey": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -108,6 +113,11 @@
     "/getServiceDefinition": {
       "description": "Defines metadata used to exchange data between Marketo and service provider",
       "get": {
+        "security": [
+          {
+            "apiKey": []
+          }
+        ],
         "summary": "Returns a service definition for user install",
         "responses": {
           "200": {
@@ -126,6 +136,11 @@
     "/status": {
       "description": "Returns status information, notifications and deprecation info from the service.  Polled nightly by Marketo",
       "get": {
+        "security": [
+          {
+            "apiKey": []
+          }
+        ],
         "summary": "Returns status information for the service",
         "responses": {
           "200": {
@@ -198,6 +213,11 @@
     "/getPicklist": {
       "description": "Returns lists of choices for a flow or global parameter.",
       "post": {
+        "security": [
+          {
+            "apiKey": []
+          }
+        ],
         "summary": "Returns lists of choices for a flow or global parameter.",
         "requestBody": {
           "required": true,
